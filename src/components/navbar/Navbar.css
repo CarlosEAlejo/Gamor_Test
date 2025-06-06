@@ -1,0 +1,125 @@
+/* Navbar.css - estilo limpio y moderno acorde a guías DEFAULT */
+
+:root {
+  --color-bg: #ffffff;
+  --color-text: #4a5568;
+  --color-text-dark: #111827;
+  --color-primary: #000000;
+  --color-primary-hover: #1a1a1a;
+  --color-card-bg: #ffffff;
+  --color-border: #e5e7eb;
+}
+
+.dark {
+  --color-bg: #111827;
+  --color-text: #cbd5e1;
+  --color-text-dark: #f9fafb;
+  --color-primary: #f9fafb;
+  --color-primary-hover: #e5e7eb;
+  --color-card-bg: #1e293b;
+  --color-border: #374151;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+}
+
+.navbar {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  background-color: var(--color-card-bg);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
+  z-index: 1000;
+}
+
+.navbar-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar-logo {
+  font-weight: 800;
+  font-size: 1.75rem;
+  color: var(--color-text-dark);
+  user-select: none;
+  cursor: default;
+  letter-spacing: 1.5px;
+}
+
+.navbar-nav {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.navbar-nav a {
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--color-text);
+  position: relative;
+  padding: 0.25rem 0;
+  transition: color 0.3s ease;
+}
+
+.navbar-nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  height: 2px;
+  width: 0;
+  background-color: var(--color-primary);
+  transition: width 0.3s ease;
+  border-radius: 2px;
+}
+
+.navbar-nav a:hover,
+.navbar-nav a:focus {
+  color: var(--color-primary);
+  outline: none;
+}
+
+.navbar-nav a:hover::after,
+.navbar-nav a:focus::after {
+  width: 100%;
+}
+
+.navbar-button {
+  padding: 0.5rem 1.25rem;
+  background-color: var(--color-primary);
+  color: var(--color-bg);
+  border: none;
+  border-radius: 0.5rem;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.navbar-button:hover,
+.navbar-button:focus {
+  background-color: var(--color-primary-hover);
+  outline: none;
+}
+
+@media (max-width: 600px) {
+  .navbar-container {
+    padding: 1rem;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .navbar-nav {
+    gap: 1.25rem;
+  }
+}
