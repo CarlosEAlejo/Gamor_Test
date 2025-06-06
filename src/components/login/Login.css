@@ -1,0 +1,150 @@
+/* Login.css - estilo refinado y moderno acorde a las guías DEFAULT */
+
+:root {
+  --color-bg: #ffffff;
+  --color-text: #6b7280;
+  --color-text-dark: #111827;
+  --color-primary: #000000;
+  --color-primary-hover: #1a1a1a;
+  --color-card-bg: #ffffff;
+  --color-border: #e5e7eb;
+  --color-error: #dc2626;
+}
+
+.dark {
+  --color-bg: #111827;
+  --color-text: #d1d5db;
+  --color-text-dark: #f9fafb;
+  --color-primary: #f9fafb;
+  --color-primary-hover: #e5e7eb;
+  --color-card-bg: #1e293b;
+  --color-border: #374151;
+  --color-error: #f87171;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  margin: 0;
+  padding: 0;
+}
+
+.login-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 1rem;
+  background-color: var(--color-bg);
+  transition: background-color 0.3s ease;
+}
+
+.login-card {
+  background-color: var(--color-card-bg);
+  max-width: 420px;
+  width: 100%;
+  border-radius: 0.75rem;
+  padding: 3rem 3rem 3.5rem 3rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+}
+
+.login-card h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--color-text-dark);
+}
+
+.login-card p.description {
+  font-size: 1.125rem;
+  margin-bottom: 2.5rem;
+  color: var(--color-text);
+  line-height: 1.4;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  text-align: left;
+}
+
+.login-form label {
+  font-weight: 600;
+  font-size: 1.125rem;
+  margin-bottom: 0.5rem;
+  color: var(--color-text);
+  display: block;
+}
+
+.login-form input[type="email"],
+.login-form input[type="password"] {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  border: 1.5px solid var(--color-border);
+  border-radius: 0.5rem;
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+  background-color: var(--color-card-bg);
+  color: var(--color-text-dark);
+  font-family: inherit;
+}
+
+.login-form input[type="email"]:focus,
+.login-form input[type="password"]:focus {
+  border-color: var(--color-primary);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.15);
+}
+
+.login-form button {
+  width: 100%;
+  background-color: var(--color-primary);
+  color: var(--color-bg);
+  padding: 0.875rem 1rem;
+  border: none;
+  border-radius: 0.5rem;
+  font-weight: 700;
+  font-size: 1.125rem;
+  cursor: pointer;
+  transition: background-color 0.25s ease;
+}
+
+.login-form button:hover,
+.login-form button:focus {
+  background-color: var(--color-primary-hover);
+  outline: none;
+}
+
+.login-error {
+  color: var(--color-error);
+  font-weight: 600;
+  margin-top: -0.75rem;
+  margin-bottom: 0.75rem;
+  font-size: 0.95rem;
+}
+
+.register-link {
+  margin-top: 2rem;
+  font-size: 1rem;
+  color: var(--color-text);
+  text-align: center;
+}
+
+.register-link a {
+  color: var(--color-primary);
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.25s ease;
+  cursor: pointer;
+}
+
+.register-link a:hover,
+.register-link a:focus {
+  color: var(--color-primary-hover);
+  text-decoration: underline;
+}
