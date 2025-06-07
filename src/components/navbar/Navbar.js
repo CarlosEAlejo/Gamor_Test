@@ -9,23 +9,20 @@ const Navbar = ({ onThemeToggle }) => {
       aria-label="Barra de navegación principal"
     >
       <div className="navbar-container">
-        <div
-          className="navbar-logo"
+        <a href="/" className="navbar-logo"
           tabIndex={-1}
-          aria-label="Logo de Gamor"
-          // avoid keyboard focus but accessible by screen readers
-        >
+          aria-label="Logo de Gamor">
           Gamor
-        </div>
+        </a>
         <nav
           className="navbar-nav"
           role="navigation"
           aria-label="Menú principal"
         >
-          <a href="#login" tabIndex={0}>
+          <a href="/login" tabIndex={0}>
             Login
           </a>
-          <a href="#register" tabIndex={0}>
+          <a href="/register" tabIndex={0}>
             Registro
           </a>
           <button
