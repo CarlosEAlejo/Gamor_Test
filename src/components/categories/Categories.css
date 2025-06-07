@@ -1,0 +1,92 @@
+/* Categories.css - estilo elegante con fotos para cada categoría acorde al estilo DEFAULT */
+
+:root {
+  --color-bg: #ffffff;
+  --color-text: #6b7280;
+  --color-text-dark: #111827;
+  --color-card-bg: #ffffff;
+  --color-border: #e5e7eb;
+  --color-shadow: rgba(0, 0, 0, 0.05);
+}
+
+.dark {
+  --color-bg: #111827;
+  --color-text: #cbd5e1;
+  --color-text-dark: #f9fafb;
+  --color-card-bg: #1e293b;
+  --color-border: #374151;
+  --color-shadow: rgba(0, 0, 0, 0.2);
+}
+
+.categories-section {
+  background-color: var(--color-bg);
+  padding-top: 4rem;
+  padding-bottom: 5rem;
+  transition: background-color 0.3s ease;
+}
+
+.categories-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.categories-header {
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--color-text-dark);
+  margin-bottom: 2rem;
+  user-select: none;
+  line-height: 1.1;
+}
+
+.categories-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2.5rem;
+}
+
+.category-card {
+  background-color: var(--color-card-bg);
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 14px var(--color-shadow);
+  padding: 0;
+  color: var(--color-text-dark);
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  user-select: none;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  border: 1.5px solid transparent;
+}
+
+.category-card:hover,
+.category-card:focus-within {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 38px var(--color-shadow);
+  outline: none;
+  border-color: var(--color-text-dark);
+}
+
+.category-image {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  user-select: none;
+}
+
+.category-name {
+  font-weight: 700;
+  font-size: 1.5rem;
+  padding: 1.25rem 1rem 1.75rem 1rem;
+  color: var(--color-text-dark);
+  background-color: var(--color-card-bg);
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+}
