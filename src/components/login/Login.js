@@ -1,17 +1,26 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./Login.css";
 
-const Login = () => {
+// Usuario y contraseña estáticos para simulación de autenticación
+const validUser = {
+  username: "user@example.com",
+  password: "password123",
+};
+
+const Login = ({ onThemeToggle }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
     setError("");
 
+    // Validación básica
     if (!email.includes("@")) {
-      setError("Por favor ingresa un email válido.");
+      setError("Por favor ingresa un correo válido.");
       return;
     }
     if (password.length < 6) {
@@ -19,8 +28,13 @@ const Login = () => {
       return;
     }
 
-    alert("Login exitoso!");
-    // Aquí puedes agregar la lógica real de autenticación.
+    // Verificar usuario estático (simulación)
+    if (email === validUser.username && password === validUser.password) {
+      // Autenticación exitosa, redirigir a /main (MainBoard y categorías)
+      navigate("/");
+    } else {
+      setError("Usuario o contraseña incorrectos.");
+    }
   };
 
   return (
@@ -45,6 +59,7 @@ const Login = () => {
             aria-describedby={error ? "email-error" : undefined}
             value={email}
             onChange={(e) => setEmail(e.target.value)}
+            autoComplete="username"
           />
 
           <label htmlFor="password">Contraseña</label>
@@ -57,6 +72,7 @@ const Login = () => {
             aria-describedby={error ? "password-error" : undefined}
             value={password}
             onChange={(e) => setPassword(e.target.value)}
+            autoComplete="current-password"
           />
 
           {error && (
@@ -65,13 +81,17 @@ const Login = () => {
             </p>
           )}
 
-          <button type="submit" aria-label="Iniciar sesión">
+          <button
+            type="submit"
+            aria-label="Iniciar sesión"
+            className="login-submit-button"
+          >
             Iniciar sesión
           </button>
         </form>
         <p className="register-link">
           ¿No tienes cuenta?{" "}
-          <a href="/register" aria-label="Ir a registro">
+          <a href="#register" aria-label="Ir a registro">
             Regístrate aquí
           </a>
         </p>
