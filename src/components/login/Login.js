@@ -71,7 +71,7 @@ const Login = () => {
         </form>
         <p className="register-link">
           ¿No tienes cuenta?{" "}
-          <a href="#register" aria-label="Ir a registro">
+          <a href="/register" aria-label="Ir a registro">
             Regístrate aquí
           </a>
         </p>
