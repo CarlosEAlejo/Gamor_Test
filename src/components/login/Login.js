@@ -8,7 +8,7 @@ const validUser = {
   password: "password123",
 };
 
-const Login = ({ onThemeToggle }) => {
+const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -66,7 +66,7 @@ const Login = ({ onThemeToggle }) => {
           <input
             id="password"
             type="password"
-            placeholder="********"
+            placeholder="contraseña"
             minLength={6}
             aria-required="true"
             aria-describedby={error ? "password-error" : undefined}
