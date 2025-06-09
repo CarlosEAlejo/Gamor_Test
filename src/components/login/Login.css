@@ -54,14 +54,15 @@ body {
 }
 
 .login-card h1 {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
   font-size: 3rem;
   font-weight: 700;
   margin-bottom: 1rem;
   color: var(--color-text-dark);
-  display: inline-flex;
-  /* Para alinear el botón y el título */
-  align-items: center;
-  /* Centrar verticalmente */
+  user-select: none;
+  line-height: 1.1;
 }
 
 .login-card p.description {
@@ -158,20 +159,30 @@ body {
 /* Agregar estilo para el botón de volver */
 
 .back-to-main-btn {
-  background: none;
+  background-color: var(--button-circle-bg);
   border: none;
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
   cursor: pointer;
   color: var(--color-primary);
-  padding: 0;
-  margin-right: 0.5rem;
-  transition: color 0.25s ease, transform 0.25s ease;
   display: flex;
   align-items: center;
+  justify-content: center;
+  transition:
+    background-color 0.3s ease,
+    color 0.25s ease,
+    transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  flex-shrink: 0;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  user-select: none;
 }
 
 .back-to-main-btn:hover,
 .back-to-main-btn:focus {
+  background-color: var(--button-circle-bg-hover);
   color: var(--color-primary-hover);
   outline: none;
-  transform: translateX(-4px);
+  transform: translateX(-6px) scale(1.05);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
