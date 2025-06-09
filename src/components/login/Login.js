@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { validUser } from "../../utils/auth";
 import "./Login.css";
 
@@ -107,9 +107,7 @@ const Login = () => {
         </form>
         <p className="register-link">
           ¿No tienes cuenta?{" "}
-          <a href="#register" aria-label="Ir a registro">
-            Regístrate aquí
-          </a>
+          <Link to="/register" >Regístrate aquí</Link>
         </p>
       </section>
     </main>
