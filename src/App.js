@@ -5,22 +5,15 @@ import Login from "./components/login/Login";
 import Categories from "./components/categories/Categories";
 import MainBoard from "./components/main_board/MainBoard";
 
-const categoriesData = [
-  { id: 1, name: "Acción", icon: "accion" },
-  { id: 2, name: "Aventura", icon: "aventura" },
-  { id: 3, name: "Deportes", icon: "deportes" },
-  { id: 4, name: "Estrategia", icon: "estrategia" },
-  { id: 5, name: "Juegos de rol", icon: "RPG" },
-  { id: 6, name: "Shooter", icon: "Shooter" },
-];
-
+// Importar imágenes estáticas alojadas en la carpeta public o src/assets
+// Ajusta las rutas según donde guardes las imágenes en tu proyecto
 const gamesData = [
-  { id: 1, name: "League of Legends" },
-  { id: 2, name: "Fortnite" },
-  { id: 3, name: "Minecraft" },
-  { id: 4, name: "Valorant" },
-  { id: 5, name: "The Witcher 3" },
-  { id: 6, name: "Among Us" },
+  { id: 1, name: "League of Legends", category: "Estrategia", image: process.env.PUBLIC_URL + "/images/estrategia.jpg" },
+  { id: 2, name: "Fortnite", category: "Shooter", image: process.env.PUBLIC_URL + "/images/shooter.jpg" },
+  { id: 3, name: "Minecraft", category: "Aventura", image: process.env.PUBLIC_URL + "/images/aventura.jpg" },
+  { id: 4, name: "Fifa 2025", category: "Deportes", image: process.env.PUBLIC_URL + "/images/deportes.jpg" },
+  { id: 5, name: "The Witcher 3", category: "Juegos de rol", image: process.env.PUBLIC_URL + "/images/rpg.jpg" },
+  { id: 6, name: "GTA", category: "accion", image: process.env.PUBLIC_URL + "/images/accion.jpg" },
 ];
 
 const App = () => {
@@ -69,7 +62,7 @@ const App = () => {
                 onAddGame={handleAddGame}
                 onRemoveGame={handleRemoveGame}
               />
-              <Categories categories={categoriesData} />
+              <Categories categories={gamesData} />
             </>
           }
         />

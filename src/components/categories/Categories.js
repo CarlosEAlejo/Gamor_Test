@@ -1,18 +1,6 @@
 import React from "react";
 import "./Categories.css";
 
-// Importar imágenes estáticas alojadas en la carpeta public o src/assets
-// Ajusta las rutas según donde guardes las imágenes en tu proyecto
-
-const categoryImages = {
-  accion: process.env.PUBLIC_URL + "/images/accion.jpg",
-  aventura: process.env.PUBLIC_URL + "/images/aventura.jpg",
-  deportes: process.env.PUBLIC_URL + "/images/deportes.jpg",
-  estrategia: process.env.PUBLIC_URL + "/images/estrategia.jpg",
-  RPG: process.env.PUBLIC_URL + "/images/rpg.jpg",
-  Shooter: process.env.PUBLIC_URL + "/images/shooter.jpg",
-};
-
 const Categories = ({ categories }) => {
   return (
     <section
@@ -24,21 +12,21 @@ const Categories = ({ categories }) => {
           Categorías
         </h2>
         <div className="categories-grid">
-          {categories.map(({ id, name, icon }) => (
+          {categories.map(({ id, category, image }) => (
             <article
               key={id}
               className="category-card"
               tabIndex={0}
-              aria-label={`Categoría ${name}`}
+              aria-label={`Categoría ${category}`}
             >
               <img
-                src={categoryImages[icon]}
-                alt={`Imagen de la categoría ${name}`}
+                src={image}
+                alt={`Imagen de la categoría ${category}`}
                 className="category-image"
                 loading="lazy"
                 draggable={false}
               />
-              <h3 className="category-name">{name}</h3>
+              <h3 className="category-name">{category}</h3>
             </article>
           ))}
         </div>
