@@ -4,17 +4,8 @@ import Navbar from "./components/navbar/Navbar";
 import Login from "./components/login/Login";
 import Categories from "./components/categories/Categories";
 import MainBoard from "./components/main_board/MainBoard";
-
-// Importar imágenes estáticas alojadas en la carpeta public o src/assets
-// Ajusta las rutas según donde guardes las imágenes en tu proyecto
-const gamesData = [
-  { id: 1, name: "League of Legends", category: "Estrategia", image: process.env.PUBLIC_URL + "/images/estrategia.jpg" },
-  { id: 2, name: "Fortnite", category: "Shooter", image: process.env.PUBLIC_URL + "/images/shooter.jpg" },
-  { id: 3, name: "Minecraft", category: "Aventura", image: process.env.PUBLIC_URL + "/images/aventura.jpg" },
-  { id: 4, name: "Fifa 2025", category: "Deportes", image: process.env.PUBLIC_URL + "/images/deportes.jpg" },
-  { id: 5, name: "The Witcher 3", category: "Juegos de rol", image: process.env.PUBLIC_URL + "/images/rpg.jpg" },
-  { id: 6, name: "GTA", category: "accion", image: process.env.PUBLIC_URL + "/images/accion.jpg" },
-];
+import Register from "./components/register/Register";
+import { gamesData } from "./utils/data";
 
 const App = () => {
   const [theme, setTheme] = useState("light");
@@ -67,6 +58,7 @@ const App = () => {
           }
         />
         <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register theme={theme} />} />
       </Routes>
     </Router>
   );
