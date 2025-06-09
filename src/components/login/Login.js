@@ -1,12 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { validUser } from "../../utils/auth";
 import "./Login.css";
-
-// Usuario y contraseña estáticos para simulación de autenticación
-const validUser = {
-  username: "user@example.com",
-  password: "password123",
-};
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -18,7 +13,6 @@ const Login = () => {
     e.preventDefault();
     setError("");
 
-    // Validación básica
     if (!email.includes("@")) {
       setError("Por favor ingresa un correo válido.");
       return;
@@ -28,9 +22,7 @@ const Login = () => {
       return;
     }
 
-    // Verificar usuario estático (simulación)
     if (email === validUser.username && password === validUser.password) {
-      // Autenticación exitosa, redirigir a /main (MainBoard y categorías)
       navigate("/");
     } else {
       setError("Usuario o contraseña incorrectos.");
@@ -44,6 +36,30 @@ const Login = () => {
         aria-label="Formulario de inicio de sesión"
         tabIndex={-1}
       >
+        <button
+          type="button"
+          onClick={() => navigate("/")}
+          aria-label="Volver a la página principal"
+          className="back-to-main-btn"
+          title="Volver a Main"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            viewBox="0 0 24 24"
+            width="24"
+            height="24"
+            aria-hidden="true"
+            focusable="false"
+          >
+            <polyline points="15 18 9 12 15 6" />
+          </svg>
+        </button>
+
         <h1>Bienvenido a Gamor</h1>
         <p className="description">
           Inicia sesión para acceder a tu plataforma de streaming de juegos
@@ -101,3 +117,4 @@ const Login = () => {
 };
 
 export default Login;
+
