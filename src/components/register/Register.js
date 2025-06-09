@@ -2,7 +2,34 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Register.css";
 
+/**
+ * Componente Register
+ *
+ * Representa un formulario de registro de usuario con validaciones básicas.
+ * Sigue las pautas de diseño DEFAULT: limpio, elegante, con soporte para cambio
+ * de tema claro y oscuro, y alta accesibilidad.
+ *
+ * Props:
+ * - theme (string): representa el tema actual ("light" o "dark").
+ *
+ * Estado:
+ * - formData: Objeto con datos del formulario (username, email, password, confirmPassword).
+ * - errors: Objeto para almacenar mensajes de error por campo.
+ * - submitError: Mensaje general de error al enviar el formulario.
+ *
+ * Funcionalidad:
+ * - Valida campos al enviar el formulario mostrando errores específicos si los hay.
+ * - Simula envío exitoso redirigiendo a la página de login ("/login").
+ * - Sincroniza tema de la app agregando/clasificando clase en <html>.
+ *
+ * Accesibilidad:
+ * - Usa atributos aria-invalid, aria-describedby y roles para notificaciones de error.
+ * - Uso de etiquetas semánticas y formulario con noValidate.
+ *
+ * @returns JSX del formulario de registro.
+ */
 const Register = ({ theme }) => {
+
     const [formData, setFormData] = useState({
         username: "",
         email: "",
@@ -15,6 +42,7 @@ const Register = ({ theme }) => {
 
     // Sincronizar tema global
     useEffect(() => {
+        // Aplicar la clase para el tema activo en el elemento raíz <html>
         const root = document.documentElement;
         if (theme === "dark") {
             root.classList.add("dark");
@@ -25,6 +53,13 @@ const Register = ({ theme }) => {
         }
     }, [theme]);
 
+    /**
+   * Valida el formulario localmente.
+   * Verifica que los campos se hayan completado adecuadamente
+   * y que las contraseñas coincidan.
+   *
+   * @returns boolean indicando si el formulario es válido.
+   */
     const validate = () => {
         const newErrors = {};
 
@@ -45,10 +80,23 @@ const Register = ({ theme }) => {
         return Object.keys(newErrors).length === 0;
     };
 
+    /**
+   * Maneja el cambio en los campos del formulario.
+   * Actualiza el estado 'formData' correspondiente al campo modificado.
+   *
+   * @param {object} e - Evento del input.
+   */
     const handleChange = (e) => {
         setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
     };
 
+    /**
+   * Envía el formulario validando los campos.
+   * Si es válido simula un registro con alerta y redirige a login.
+   * Si no, establece el mensaje de error general.
+   *
+   * @param {object} e - Evento submit del formulario.
+   */
     const handleSubmit = (e) => {
         e.preventDefault();
         setSubmitError("");

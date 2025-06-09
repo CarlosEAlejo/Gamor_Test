@@ -3,12 +3,41 @@ import { useNavigate, Link } from "react-router-dom";
 import { validUser } from "../../utils/auth";
 import "./Login.css";
 
+/**
+ * Componente Login
+ *
+ * Representa el formulario de inicio de sesión para la aplicación.
+ * Permite a los usuarios ingresar su correo electrónico y contraseña
+ * para acceder a la plataforma de streaming de juegos.
+ *
+ * Estado:
+ * - email: Almacena el correo electrónico ingresado por el usuario.
+ * - password: Almacena la contraseña ingresada por el usuario.
+ * - error: Almacena mensajes de error relacionados con la autenticación.
+ *
+ * Funcionalidad:
+ * - Valida el correo electrónico y la contraseña antes de permitir el inicio de sesión.
+ * - Redirige al usuario a la página principal si las credenciales son correctas.
+ * - Muestra mensajes de error si las credenciales son incorrectas o si hay problemas de validación.
+ *
+ * Accesibilidad:
+ * - Usa atributos ARIA para mejorar la accesibilidad del formulario.
+ *
+ * @returns JSX del formulario de inicio de sesión.
+ */
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
+  /**
+   * Maneja el envío del formulario de inicio de sesión.
+   * Valida el correo electrónico y la contraseña, y redirige al usuario
+   * si las credenciales son correctas.
+   *
+   * @param {object} e - Evento de envío del formulario.
+   */
   const handleSubmit = (e) => {
     e.preventDefault();
     setError("");
@@ -22,6 +51,7 @@ const Login = () => {
       return;
     }
 
+    // Verificación de credenciales
     if (email === validUser.username && password === validUser.password) {
       navigate("/");
     } else {

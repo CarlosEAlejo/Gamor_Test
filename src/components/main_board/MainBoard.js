@@ -1,12 +1,40 @@
 import React, { useState, useEffect } from "react";
 import "./MainBoard.css";
 
+/**
+ * Componente MainBoard
+ *
+ * Representa el tablero principal donde se pueden buscar y agregar juegos.
+ * Muestra dos listas: una para juegos disponibles y otra para juegos agregados.
+ * Permite buscar juegos mediante un campo de entrada y eliminar juegos de la lista agregada.
+ *
+ * Props:
+ * - games (Array): Lista de juegos disponibles.
+ * - onAddGame (function): Función que se ejecuta al agregar un juego.
+ * - onRemoveGame (function): Función que se ejecuta al eliminar un juego.
+ * - addedGameIds (Set): Conjunto de IDs de juegos que han sido agregados.
+ *
+ * Estado:
+ * - searchTerm: Término de búsqueda ingresado por el usuario.
+ * - filteredGames: Lista de juegos filtrados según el término de búsqueda.
+ * - removingIds: Conjunto de IDs de juegos que están en proceso de eliminación.
+ *
+ * Funcionalidad:
+ * - Filtra la lista de juegos disponibles según el término de búsqueda.
+ * - Maneja la animación de salida al eliminar un juego.
+ *
+ * Accesibilidad:
+ * - Usa atributos ARIA para mejorar la accesibilidad de las listas y el campo de búsqueda.
+ *
+ * @returns JSX del tablero principal con listas de juegos.
+ */
 const MainBoard = ({ games, onAddGame, onRemoveGame, addedGameIds }) => {
     const [searchTerm, setSearchTerm] = useState("");
     const [filteredGames, setFilteredGames] = useState(games);
     const [removingIds, setRemovingIds] = useState(new Set());
 
     useEffect(() => {
+        // Filtra los juegos disponibles según el término de búsqueda
         if (searchTerm.trim() === "") {
             setFilteredGames(games.filter((g) => !addedGameIds.has(g.id)));
         } else {
@@ -21,7 +49,13 @@ const MainBoard = ({ games, onAddGame, onRemoveGame, addedGameIds }) => {
         }
     }, [searchTerm, games, addedGameIds]);
 
-    // Manejar la animación de salida y luego eliminar juego
+    /**
+     * Maneja el clic en el botón de eliminar juego.
+     * Establece el ID del juego en proceso de eliminación y
+     * ejecuta la función de eliminación después de una animación.
+     *
+     * @param {string} id - ID del juego a eliminar.
+     */
     const handleRemoveClick = (id) => {
         setRemovingIds((prev) => new Set(prev).add(id));
         // La animación dura 300ms (según CSS), luego se elimina el juego

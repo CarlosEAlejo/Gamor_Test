@@ -1,6 +1,25 @@
 import React from "react";
 import "./Categories.css";
 
+/**
+ * Componente Categories
+ *
+ * Representa una sección que muestra una lista de categorías de juegos.
+ * Cada categoría se presenta como una tarjeta con una imagen y un nombre.
+ *
+ * Props:
+ * - categories (Array): Lista de objetos que representan las categorías,
+ *   cada uno con un id, nombre de categoría e imagen.
+ *
+ * Funcionalidad:
+ * - Muestra las categorías en un diseño de cuadrícula.
+ * - Cada tarjeta de categoría es accesible y puede ser enfocada.
+ *
+ * Accesibilidad:
+ * - Usa atributos ARIA para mejorar la accesibilidad de la sección y las tarjetas.
+ *
+ * @returns JSX de la sección de categorías.
+ */
 const Categories = ({ categories }) => {
   return (
     <section
