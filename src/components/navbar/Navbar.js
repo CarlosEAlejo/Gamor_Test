@@ -1,7 +1,14 @@
 import React from "react";
 import "./Navbar.css";
+import { Link, useLocation } from "react-router-dom";
 
 const Navbar = ({ onThemeToggle }) => {
+
+  const location = useLocation();
+
+  // Para marcar el link activo
+  const isActive = (path) => location.pathname === path;
+
   return (
     <header
       className="navbar"
@@ -9,22 +16,31 @@ const Navbar = ({ onThemeToggle }) => {
       aria-label="Barra de navegación principal"
     >
       <div className="navbar-container">
-        <a href="/" className="navbar-logo"
-          tabIndex={-1}
-          aria-label="Logo de Gamor">
+        <Link
+          to="/"
+          className="navbar-logo"
+        >
           Gamor
-        </a>
+        </Link>
         <nav
           className="navbar-nav"
           role="navigation"
           aria-label="Menú principal"
         >
-          <a href="/login" tabIndex={0}>
+          <Link
+            to="/login"
+            className={isActive("/login") ? "active" : ""}
+            aria-current={isActive("/login") ? "page" : undefined}
+          >
             Login
-          </a>
-          <a href="/register" tabIndex={0}>
+          </Link>
+          <Link
+            to="/register"
+            className={isActive("/register") ? "active" : ""}
+            aria-current={isActive("/register") ? "page" : undefined}
+          >
             Registro
-          </a>
+          </Link>
           <button
             onClick={onThemeToggle}
             className="navbar-button"
