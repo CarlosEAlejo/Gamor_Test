@@ -50,6 +50,7 @@ body {
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
   text-align: center;
+  position: relative;
 }
 
 .login-card h1 {
@@ -57,6 +58,10 @@ body {
   font-weight: 700;
   margin-bottom: 1rem;
   color: var(--color-text-dark);
+  display: inline-flex;
+  /* Para alinear el botón y el título */
+  align-items: center;
+  /* Centrar verticalmente */
 }
 
 .login-card p.description {
@@ -148,4 +153,25 @@ body {
 .register-link a:focus {
   color: var(--color-primary-hover);
   text-decoration: underline;
+}
+
+/* Agregar estilo para el botón de volver */
+
+.back-to-main-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--color-primary);
+  padding: 0;
+  margin-right: 0.5rem;
+  transition: color 0.25s ease, transform 0.25s ease;
+  display: flex;
+  align-items: center;
+}
+
+.back-to-main-btn:hover,
+.back-to-main-btn:focus {
+  color: var(--color-primary-hover);
+  outline: none;
+  transform: translateX(-4px);
 }
